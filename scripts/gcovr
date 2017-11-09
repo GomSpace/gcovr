@@ -519,6 +519,8 @@ def process_gcov_data(data_fname, covdata, source_fname, options):
                 if not os.path.exists(fname):
                     # 3. Try using the path to the gcda file as the source directory
                     fname = os.path.join(os.path.dirname(source_fname), os.path.basename(segments[-1].strip()))
+        if os.path.exists(fname):
+            fname = posixpath.normpath(fname)
 
 
     if options.verbose:
